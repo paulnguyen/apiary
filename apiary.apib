@@ -1,0 +1,129 @@
+FORMAT: 1A
+HOST: http://restbucksapi.apiblueprint.org/
+
+# RestBucks API
+
+Example from REST in Practice Book
+
+## Orders [/order]
+
+### Get All Orders [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id" : 1
+                "location": "takeAway",
+                "items" : [
+                    "item": {
+                        "name : "latte",
+                        "quantity" : 1,
+                        "milk" : "whole",
+                        "size" : "small"
+                    }
+                ],
+                "status" : "pending"
+            }
+        ]
+
+### Create a New Order [POST]
+
++ Request (application/json)
+
+        {
+            "location": "takeAway",
+            "item": {
+                "name : "latte",
+                "quantity" : 1,
+                "milk" : "whole",
+                "size" : "small"
+            }
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /order/1
+
+    + Body
+
+            {
+                "id" : 1,
+                "location": "takeAway",
+                "items" : [
+                    "item": {
+                        "name : "latte",
+                        "quantity" : 1,
+                        "milk" : "whole",
+                        "size" : "small"
+                    }
+                ],
+                "status" : "pending"
+            }
+
+## Order [/order/{id}]
+
+### Get Order by ID [GET]
+
++ Response 200 (application/json)
+ 
+  + Attributes (object)
+        + id: 1 (number)
+
+  + Body
+ 
+            {
+                "id" : 1,
+                "location": "takeAway",
+                "items" : [
+                    "item": {
+                        "name : "latte",
+                        "quantity" : 1,
+                        "milk" : "whole",
+                        "size" : "small"
+                    }
+                ],
+                "status" : "pending"
+            }
+
+
+### Update Order by ID [PUT]
+
++ Request (application/json)
+
+        {
+            "location": "takeAway",
+            "item": {
+                "name : "cappuccino",
+                "quantity" : 1,
+                "milk" : "skim",
+                "size" : "large"
+            }
+        }
+        
++ Response 200 (application/json)
+ 
+  + Attributes (object)
+        + id: 1 (number)
+
+  + Body
+ 
+            {
+                "id" : 1
+                "location": "takeAway",
+                "items" : [
+                    "item": {
+                        "name : "cappuccino",
+                        "quantity" : 1,
+                        "milk" : "skim",
+                        "size" : "large"
+                    }
+                ],
+                "status" : "preparing"
+            }
+
+### Delete Order by ID [DELETE]
+
++ Response 204 (application/json)

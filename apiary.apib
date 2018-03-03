@@ -16,7 +16,7 @@ Example from REST in Practice Book
                 "id" : 1
                 "location": "takeAway",
                 "items" : [
-                    "item": {
+                    {
                         "name" : "latte",
                         "quantity" : 1,
                         "milk" : "whole",
@@ -31,15 +31,17 @@ Example from REST in Practice Book
 
 + Request (application/json)
 
-        {
-            "location": "takeAway",
-            "item": {
-                "name" : "latte",
-                "quantity" : 1,
-                "milk" : "whole",
-                "size" : "small"
+    {
+        "location": "take-out",
+        "items": [
+            {
+                "qty": 1,
+                "name": "latte",
+                "milk": "whole",
+                "size": "large"
             }
-        }
+        ]
+}
 
 + Response 201 (application/json)
 
@@ -53,7 +55,7 @@ Example from REST in Practice Book
                 "id" : 1,
                 "location": "takeAway",
                 "items" : [
-                    "item": {
+                    {
                         "name" : "latte",
                         "quantity" : 1,
                         "milk" : "whole",
@@ -78,7 +80,7 @@ Example from REST in Practice Book
                 "id" : 1,
                 "location": "takeAway",
                 "items" : [
-                    "item": {
+                    {
                         "name" : "latte",
                         "quantity" : 1,
                         "milk" : "whole",
@@ -114,7 +116,7 @@ Example from REST in Practice Book
                 "id" : 1
                 "location": "takeAway",
                 "items" : [
-                    "item": {
+                    {
                         "name" : "cappuccino",
                         "quantity" : 1,
                         "milk" : "skim",
